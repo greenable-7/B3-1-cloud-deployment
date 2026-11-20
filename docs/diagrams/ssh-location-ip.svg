@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-label="아카데미와 집의 공인 IP 차이로 발생하는 SSH 접속 차단과 보안 그룹 규칙 변경 해결 도식">
+  <rect width="1200" height="650" fill="#f7f9fc"/>
+  <rect x="0" y="0" width="1200" height="105" fill="#1e3a5f"/>
+  <text x="50" y="60" font-size="34" font-weight="700" fill="#ffffff" font-family="Arial, Noto Sans KR, sans-serif">B3-1 | SSH 접속 오류: 장소마다 다른 공인 IP</text>
+  <text x="50" y="90" font-size="18" fill="#dceaff" font-family="Arial, Noto Sans KR, sans-serif">문제 → 원인 → 조치 → 확인</text>
+  <rect x="35" y="137" width="535" height="370" rx="17" fill="#ffffff" stroke="#e09a9a" stroke-width="3"/>
+  <rect x="635" y="137" width="530" height="370" rx="17" fill="#ffffff" stroke="#78b99e" stroke-width="3"/>
+  <rect x="35" y="137" width="535" height="65" rx="17" fill="#b43f43"/>
+  <rect x="35" y="186" width="535" height="16" fill="#b43f43"/>
+  <text x="62" y="180" font-size="27" fill="#ffffff" font-weight="700" font-family="Arial, Noto Sans KR, sans-serif">변경 전 | 집에서 접속 실패</text>
+  <rect x="635" y="137" width="530" height="65" rx="17" fill="#18815d"/>
+  <rect x="635" y="186" width="530" height="16" fill="#18815d"/>
+  <text x="662" y="180" font-size="27" fill="#ffffff" font-weight="700" font-family="Arial, Noto Sans KR, sans-serif">변경 후 | 집에서도 접속 가능</text>
+  <g font-family="Arial, Noto Sans KR, sans-serif" font-size="22" fill="#24334a">
+    <text x="65" y="246" font-weight="700">보안 그룹 인바운드 규칙</text>
+    <text x="665" y="246" font-weight="700">보안 그룹 인바운드 규칙</text>
+  </g>
+  <rect x="63" y="263" width="478" height="51" rx="9" fill="#e8f0fa"/>
+  <rect x="663" y="263" width="470" height="51" rx="9" fill="#e8f0fa"/>
+  <g font-family="Arial, Noto Sans KR, sans-serif" font-size="19" fill="#20334c">
+    <text x="79" y="296">HTTP  |  TCP 80  |  0.0.0.0/0</text>
+    <text x="679" y="296">HTTP  |  TCP 80  |  0.0.0.0/0</text>
+  </g>
+  <rect x="63" y="322" width="478" height="55" rx="9" fill="#ffe9e9"/>
+  <rect x="663" y="322" width="470" height="55" rx="9" fill="#e4f6ed"/>
+  <rect x="663" y="386" width="470" height="55" rx="9" fill="#e4f6ed"/>
+  <g font-family="Arial, Noto Sans KR, sans-serif" font-size="20" fill="#20334c">
+    <text x="79" y="356">SSH  |  TCP 22  |  아카데미 공인 IP/32</text>
+    <text x="679" y="356">SSH  |  TCP 22  |  아카데미 공인 IP/32</text>
+    <text x="679" y="420">SSH  |  TCP 22  |  집 공인 IP/32</text>
+    <text x="63" y="417" font-size="19" fill="#b43f43">집 공인 IP는 허용 목록에 없음 → 차단</text>
+    <text x="663" y="477" font-size="19" fill="#18815d">신뢰하는 집 IP만 추가 → SSH 허용</text>
+  </g>
+  <path d="M582 310 L621 310 M608 299 L621 310 L608 321" fill="none" stroke="#506d8a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="35" y="534" width="1130" height="78" rx="13" fill="#e9eff8"/>
+  <g font-family="Arial, Noto Sans KR, sans-serif" fill="#24334a">
+    <text x="56" y="565" font-size="23" font-weight="700">핵심: HTTP(80)는 웹 이용자에게 공개 / SSH(22)는 신뢰한 공인 IP만 허용</text>
+    <text x="56" y="595" font-size="18">설명용 도식 · 실제 AWS 콘솔 캡처 아님 · IP는 예시 개념이며 실제 주소와 허용 규칙은 콘솔에서 확인</text>
+  </g>
+</svg>
